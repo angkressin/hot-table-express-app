@@ -6,6 +6,10 @@ var path = require("path");
 
 var waitlist = [];
 var reservation = [];
+var customerName = '';
+var customerPhone = '';
+var customerEmail = '';
+var customerUniqueID = '';
 
 // Sets up the Express App
 // =============================================================
@@ -20,23 +24,30 @@ app.use(bodyParser.json());
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
-
 });
 
 app.get("/view", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
-
 });
 
 app.get("/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+app.get('/api/reservations', function(req, res) {
+  getReservations();
 });
+
+
+function getReservations() {
+
+}
+
+
+
+
+
+
 
 
 
@@ -63,3 +74,9 @@ function processRequest(pushArray) {
 
   res.json(newRequest);
 }
+
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+});
