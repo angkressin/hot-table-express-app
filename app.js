@@ -32,17 +32,6 @@ app.get("/api/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
-app.get("/api/waitlist", function(req, res) {
-  getWaitlist();
-});
-
-function getWaitlist() {
-	console.log("hi")
-}
-
-
-
-
 
 // Starts the server to begin listening
 // =============================================================
