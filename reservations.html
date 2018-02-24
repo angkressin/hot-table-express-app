@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +9,49 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <title>Make Reservations</title>
 </head>
+
 <body>
   <div class="container">
-  <div class="jumbotron jumbotron-fluid text-center">
-    <div class="container">
-      <h1 class="display-4"><i class="fas fa-fire"></i> Hot Table</h1>
-      <p class="lead">A hot restuarant with only 5 tables. Please make your reservations. If you do not get a table, you will be places in the waitlist</p>
-      <button type="button" class="btn btn-primary" id="viewTable"><i class="fas fa-list-ol"></i> View Tables</button>
-      <button type="button" class="btn btn-success" id="makeReso"><i class="fas fa-share-square"></i> Make Reservations</button>
+    <div class="jumbotron jumbotron-fluid text-center">
+      <div class="container">
+        <h1 class="display-4"><i class="fas fa-fire"></i> Hot Table</h1>
+        <p class="lead">A hot restuarant with only 5 tables. Please make your reservations. If you do not get a table, you will be places in the waitlist</p>
+        <button type="button" class="btn btn-primary" id="viewTable"><i class="fas fa-list-ol"></i> View Tables</button>
+        <button type="button" class="btn btn-success" id="makeReso"><i class="fas fa-share-square"></i> Make Reservations</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Table Reservations</h5>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="userName" aria-describedby="name" placeholder="ex: John Smith">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="number" class="form-control" id="userPhone" aria-describedby="phone" placeholder="ex: 123-456-7890">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="userEmail" aria-describedby="phone" placeholder="ex: john@gmail.com">
+          </div>
+          <div class="form-group">
+            <label for="id">Email</label>
+            <input type="text" class="form-control" id="userId" aria-describedby="uniqueID" placeholder="ex: JohnSmith">
+          </div>
+          <button type="submit" id="addReso" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div class="footer">
+      <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
     </div>
   </div>
-  <div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-  <div class="footer">
-    <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
-  </div>
-</div>
 </body>
+
 </html>

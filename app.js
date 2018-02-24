@@ -32,15 +32,6 @@ app.get("/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
-
-
-
-
-
-
-
-
-
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
