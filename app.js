@@ -29,8 +29,18 @@ app.get("/view", function(req, res) {
 });
 
 app.get("/api/reservations", function(req, res) {
-  res.sendFile(path.join(__dirname, "reservations.html"));
+  res.sendFile(path.join(__dirname, reservations));
 });
+
+
+// waitlist api get call
+app.get("/api/:waitlist?", function(req, res) {
+  return res.json(waitlist);
+});
+
+
+
+
 
 
 // Starts the server to begin listening
