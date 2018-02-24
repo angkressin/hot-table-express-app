@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 var waitlist = [];
-var reservation = [];
+var reservations = [];
 
 // Sets up the Express App
 // =============================================================
@@ -28,13 +28,17 @@ app.get("/view", function(req, res) {
 
 });
 
-app.get("/reservations", function(req, res) {
+app.get("/api/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
+app.get("/api/waitlist", function(req, res) {
+  getWaitlist();
+});
 
-
-
+function getWaitlist() {
+	console.log("hi")
+}
 
 
 
@@ -47,20 +51,19 @@ app.listen(PORT, function() {
 });
 
 
-<<<<<<< HEAD
-=======
 
-if (reservation.length > 5) {
+if (reservations.length > 5) {
   // post to waitlist
   app.post('/api/waitlist', function(req, res) {
     processRequest(waitlist);
   });
 } else {
   // post to reseravtion
-  app.post('/api/reseravtion', function(req, res) {
-    processRequest(reservation);
+  app.post('/api/reservations', function(req, res) {
+    processRequest(reservations);
   });
 }
+
 
 function processRequest(pushArray) {
   var newRequest = req.body;
@@ -73,4 +76,4 @@ function processRequest(pushArray) {
 
   res.json(newRequest);
 }
->>>>>>> ed34101868acd862128dc7d1da2746a95778db6a
+
