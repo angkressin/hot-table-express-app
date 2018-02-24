@@ -37,10 +37,6 @@ app.get("/view", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
 });
 
-app.get("/api/reservations", function(req, res) {
-  res.sendFile(path.join(__dirname, reservations));
-});
-
 // reservations api get call
 app.get("/api/reservations", function(req, res) {
   return res.json(reservations);
