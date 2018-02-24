@@ -49,7 +49,7 @@ app.listen(PORT, function() {
 
 
 
-if (reseravtion.length > 5) {
+if (reservation.length > 5) {
   // post to waitlist
   app.post('/api/waitlist', function(req, res) {
     processRequest(waitlist);
