@@ -5,11 +5,15 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 var waitlist = [];
-var reservation = [];
-var customerName = '';
-var customerPhone = '';
-var customerEmail = '';
-var customerUniqueID = '';
+var reservations = [];
+
+// TEST Table
+var reservations = [{
+  name: "Yoda",
+  phone: "222-222-2222",
+  email: "email-yoda@gmai.com",
+  id: 1
+}];
 
 // Sets up the Express App
 // =============================================================
@@ -17,11 +21,12 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
 // paths to html pages
-
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -51,22 +56,22 @@ function getReservations() {
 
 
 
-if (reservation.length > 5) {
+if (reservations.length > 5) {
   // post to waitlist
   app.post('/api/waitlist', function(req, res) {
-    processRequest(waitlist);
+    processRequest(req, res, waitlist);
   });
 } else {
   // post to reseravtion
   app.post('/api/reservations', function(req, res) {
-    processRequest(reservation);
+    processRequest(req, res, reservations);
   });
 }
 
-function processRequest(pushArray) {
+function processRequest(req, res, pushArray) {
   var newRequest = req.body;
 
-  newRequest.routeName = newRequest.name.replace(/\s+/g, "").toLowerCase();
+  // newRequest.routeName = newRequest.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newRequest);
 
