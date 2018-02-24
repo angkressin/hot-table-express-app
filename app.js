@@ -47,7 +47,7 @@ if (reservation.length > 5) {
   });
 } else {
   // post to reseravtion
-  app.post('/api/reseravtion', function(req, res) {
+  app.post('/api/reservations', function(req, res) {
     processRequest(reservation);
   });
 }
