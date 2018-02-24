@@ -39,6 +39,23 @@ app.get("/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
+app.get('/api/reservations', function(req, res) {
+  getReservations();
+});
+
+
+function getReservations() {
+
+}
+
+
+
+
+
+
+
+
+
 if (reservations.length > 5) {
   // post to waitlist
   app.post('/api/waitlist', function(req, res) {
@@ -54,7 +71,7 @@ if (reservations.length > 5) {
 function processRequest(req, res, pushArray) {
   var newRequest = req.body;
 
-  newRequest.routeName = newRequest.name.replace(/\s+/g, "").toLowerCase();
+  // newRequest.routeName = newRequest.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newRequest);
 
