@@ -41,24 +41,17 @@ app.get("/api/reservations", function(req, res) {
   res.sendFile(path.join(__dirname, reservations));
 });
 
-
+// reservations api get call
+app.get("/api/reservations", function(req, res) {
+  return res.json(reservations);
+});
 
 // waitlist api get call
-app.get("/api/:waitlist?", function(req, res) {
+app.get("/api/waitlist", function(req, res) {
   return res.json(waitlist);
 });
 
 
-
-app.get('/api/reservations', function(req, res) {
-  getReservations();
-
-});
-
-
-function getReservations() {
-
-}
 
 
 
