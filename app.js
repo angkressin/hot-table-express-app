@@ -7,6 +7,7 @@ var path = require("path");
 var waitlist = [];
 var reservations = [];
 
+
 // TEST Table
 var reservations = [{
   name: "Yoda",
@@ -14,6 +15,7 @@ var reservations = [{
   email: "email-yoda@gmai.com",
   id: 1
 }];
+
 
 // Sets up the Express App
 // =============================================================
@@ -35,22 +37,15 @@ app.get("/view", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
 });
 
-app.get("/reservations", function(req, res) {
-  res.sendFile(path.join(__dirname, "reservations.html"));
+// reservations api get call
+app.get("/api/reservations", function(req, res) {
+  return res.json(reservations);
 });
 
-app.get('/api/reservations', function(req, res) {
-  getReservations();
+// waitlist api get call
+app.get("/api/waitlist", function(req, res) {
+  return res.json(waitlist);
 });
-
-
-function getReservations() {
-
-}
-
-
-
-
 
 
 
@@ -64,11 +59,13 @@ if (reservations.length > 5) {
 } else {
   // post to reseravtion
   app.post('/api/reservations', function(req, res) {
+
     processRequest(req, res, reservations);
   });
 }
 
 function processRequest(req, res, pushArray) {
+
   var newRequest = req.body;
 
   // newRequest.routeName = newRequest.name.replace(/\s+/g, "").toLowerCase();
@@ -79,6 +76,7 @@ function processRequest(req, res, pushArray) {
 
   res.json(newRequest);
 }
+
 
 // Starts the server to begin listening
 // =============================================================
