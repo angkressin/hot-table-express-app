@@ -16,8 +16,8 @@
       <div class="container">
         <h1 class="display-4"><i class="fas fa-fire"></i> Hot Table</h1>
         <p class="lead">A hot restuarant with only 5 tables. Please make your reservations. If you do not get a table, you will be places in the waitlist</p>
-        <button type="button" class="btn btn-primary" id="viewTable"><i class="fas fa-list-ol"></i> View Tables</button>
-        <button type="button" class="btn btn-success" id="makeReso"><i class="fas fa-share-square"></i> Make Reservations</button>
+        <a href="view.html" class="btn btn-primary" id="viewTable"><i class="fas fa-list-ol"></i> View Tables</a>
+        <a href="index.html" class="btn btn-success" id="makeReso"><i class="fas fa-home"></i></a>
       </div>
     </div>
     <div class="card">
@@ -87,7 +87,6 @@
       email: $("#userEmail").val().trim(),
       id: $("#userId").val().trim()
     };
-
     $.post("/api/reservations", newReservation)
     .done(function(data) {
       console.log(data);
